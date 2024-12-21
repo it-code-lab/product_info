@@ -76,7 +76,7 @@ def generate_product_html(local_html_path, base_path="saved_product_pages/", aff
             '</div>'
             '<div class="product-thumbnails">'
             + ''.join(
-                f'<img src="{img}" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage(\'{img}\')">' for img in image_urls
+                f'<img src="{img}" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage(\'{img}\', this)">' for img in image_urls
             ) +
             '</div>'
             '<div class="product-reviews">'
@@ -84,11 +84,11 @@ def generate_product_html(local_html_path, base_path="saved_product_pages/", aff
             '</div>'
             '<div class="product-reviews">'
             f'<div class="stars" style="--rating: {stars};" aria-label="Rating of {stars} out of 5"></div>'
-            f'<p>{review_count_text}</p>'
+            f'<p>{review_count_text} reviews</p>'
             '</div>'
             '<div class="product-amazon-button">'
             f'<a href="{affiliate_link}" target="_blank" style="display: inline-block; text-decoration: none; color: white; background-color: #ff9900; padding: 10px 20px; font-size: 16px; border-radius: 5px; font-weight: bold;">'
-            '<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="width: 20px; height: auto; vertical-align: middle; margin-right: 10px;">'
+            '<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="width: 50px; height: auto; vertical-align: middle; margin-right: 10px;">'
             'Find Best Price on Amazon'
             '</a>'
             '</div>'
