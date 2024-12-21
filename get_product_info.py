@@ -10,7 +10,7 @@ def load_mapping(mapping_file):
     return {row['URL']: row['Local HTML'] for _, row in mapping.iterrows()}
 
 def copy_image_to_img_folder(image_url, img_folder):
-    """Copy image to the 'img' folder and return the new relative path."""
+    """Copy image to the 'img' folder and return the new root-relative path."""
     if not os.path.exists(img_folder):
         os.makedirs(img_folder)  # Create the folder if it doesn't exist
 
@@ -24,8 +24,9 @@ def copy_image_to_img_folder(image_url, img_folder):
     # Copy the image to the 'img' folder
     shutil.copy(source_path, destination_path)
 
-    # Return the new relative path for the HTML
-    return f"img/{image_filename}"
+    # Return the new root-relative path for the HTML
+    return f"/img/{image_filename}"
+
 
 def generate_product_html(local_html_path, base_path="saved_product_pages/", affiliate_link="", img_folder="img"):
     """Generate the product HTML content for a given local HTML file."""
