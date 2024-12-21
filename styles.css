@@ -1,0 +1,51 @@
+<style>
+.product-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.product-main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-thumbnails img {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.product-thumbnails img:hover {
+    border-color: #007bff;
+}
+
+.product-reviews {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.stars {
+    --star-size: 24px;
+    --rating: 0;
+    --star-color: #ccc;
+    --star-background: #ffc107;
+    display: inline-block;
+    font-size: var(--star-size);
+    font-family: Times;
+    line-height: 1;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, var(--star-background) calc(var(--rating) * 20%), var(--star-color) calc(var(--rating) * 20%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.stars::before {
+    content: "\2605\2605\2605\2605\2605";
+}
+</style>

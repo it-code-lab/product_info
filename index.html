@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Daily Activity Log</title>
+    <style>
+      .product-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      .product-main-image img {
+        width: auto;
+        height: 500px;
+        display: block;
+        margin: auto;
+      }
+
+      .product-thumbnails img {
+        width: 80px;
+        height: 80px;
+        margin: 5px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+      }
+
+      .product-thumbnails img:hover {
+        border-color: #007bff;
+      }
+
+      .product-reviews {
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .stars {
+        --star-size: 24px;
+        --rating: 0;
+        --star-color: #ccc;
+        --star-background: #ffc107;
+        display: inline-block;
+        font-size: var(--star-size);
+        font-family: Times;
+        line-height: 1;
+        letter-spacing: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--star-background) calc(var(--rating) * 20%),
+          var(--star-color) calc(var(--rating) * 20%)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+      }
+
+      .stars::before {
+        content: "\2605\2605\2605\2605\2605";
+      }
+    </style>
+
+    <script>
+      function changeMainImage(imageUrl) {
+        document.getElementById("mainImage").src = imageUrl;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="product-container"><div class="product-main-image"><img src="saved_product_pages/1_files/71hLmfRBteL._AC_SX679_.jpg" alt="Main Product Image" id="mainImage"></div><div class="product-thumbnails"><img src="saved_product_pages/1_files/71hLmfRBteL._AC_SX679_.jpg" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage('saved_product_pages/1_files/71hLmfRBteL._AC_SX679_.jpg')"><img src="saved_product_pages/1_files/71b9k8bG7wL._AC_SX385_.jpg" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage('saved_product_pages/1_files/71b9k8bG7wL._AC_SX385_.jpg')"><img src="saved_product_pages/1_files/81GFIW-et0L._AC_SX385_.jpg" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage('saved_product_pages/1_files/81GFIW-et0L._AC_SX385_.jpg')"><img src="saved_product_pages/1_files/81pMQJ65MKL._AC_SX385_.jpg" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage('saved_product_pages/1_files/81pMQJ65MKL._AC_SX385_.jpg')"><img src="saved_product_pages/1_files/71GEi9hFEAL._AC_SX385_.jpg" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage('saved_product_pages/1_files/71GEi9hFEAL._AC_SX385_.jpg')"><img src="saved_product_pages/1_files/81-KnsI7vqL._AC_SX385_.jpg" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage('saved_product_pages/1_files/81-KnsI7vqL._AC_SX385_.jpg')"></div><div class="product-reviews"><div class="stars" style="--rating: 4.2;" aria-label="Rating of 4.2 out of 5"></div><p>(12,194)</p></div></div>  </body>
+</html>
