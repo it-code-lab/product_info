@@ -1,1 +1,8 @@
 saved_product_pages
+*.xlsx
+product_mapping.xlsx
+~$product_mapping.xlsx
+*.jpg
+*.png
+output_snippet.html
+updated_article.html
