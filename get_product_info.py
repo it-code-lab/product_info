@@ -28,6 +28,10 @@ def generate_product_html(local_html_path, base_path="saved_product_pages/"):
         # Use the first image as the default large display image
         main_image_url = image_urls[0]
 
+        # Extract price to pay
+        price_to_pay = soup.find("span", {"class": "priceToPay"})
+        price_to_pay_text = price_to_pay.get_text(strip=True) if rating else "No price found"
+
         # Extract rating and review count
         rating = soup.find("span", {"class": "a-icon-alt"})
         rating_text = rating.get_text(strip=True) if rating else "No rating found"
@@ -45,6 +49,9 @@ def generate_product_html(local_html_path, base_path="saved_product_pages/"):
             + ''.join(
                 f'<img src="{img}" alt="Thumbnail" style="width: 50px; height: auto;" onclick="changeMainImage(\'{img}\')">' for img in image_urls
             ) +
+            '</div>'
+            '<div class="product-reviews">'
+            f'<p>{price_to_pay_text}</p>'
             '</div>'
             '<div class="product-reviews">'
             f'<div class="stars" style="--rating: {stars};" aria-label="Rating of {stars} out of 5"></div>'
