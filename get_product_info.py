@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import json
 
-def generate_product_html(local_html_path, base_path="saved_product_pages/"):
+def generate_product_html(local_html_path, base_path="saved_product_pages/", affiliate_link="https://amzn.to/41mcKXV"):
     try:
         # Read the local HTML file
         with open(local_html_path, "r", encoding="utf-8") as file:
@@ -30,7 +30,7 @@ def generate_product_html(local_html_path, base_path="saved_product_pages/"):
 
         # Extract price to pay
         price_to_pay = soup.find("span", {"class": "priceToPay"})
-        price_to_pay_text = price_to_pay.get_text(strip=True) if rating else "No price found"
+        price_to_pay_text = price_to_pay.get_text(strip=True) if price_to_pay else "No price found"
 
         # Extract rating and review count
         rating = soup.find("span", {"class": "a-icon-alt"})
@@ -51,11 +51,17 @@ def generate_product_html(local_html_path, base_path="saved_product_pages/"):
             ) +
             '</div>'
             '<div class="product-reviews">'
-            f'<p>{price_to_pay_text}</p>'
+            f'<p><strong>Price:</strong> {price_to_pay_text}</p>'
             '</div>'
             '<div class="product-reviews">'
             f'<div class="stars" style="--rating: {stars};" aria-label="Rating of {stars} out of 5"></div>'
             f'<p>{review_count_text}</p>'
+            '</div>'
+            '<div class="product-amazon-button">'
+            f'<a href="{affiliate_link}" target="_blank" style="display: inline-block; text-decoration: none; color: white; background-color: #ff9900; padding: 10px 20px; font-size: 16px; border-radius: 5px; font-weight: bold;">'
+            '<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="width: 20px; height: auto; vertical-align: middle; margin-right: 10px;">'
+            'Find Best Price on Amazon'
+            '</a>'
             '</div>'
             '</div>'
         )
@@ -70,4 +76,3 @@ product_html = generate_product_html(local_html_path)
 
 with open("output_snippet.html", "w", encoding="utf-8") as output_file:
     output_file.write(product_html)
-
